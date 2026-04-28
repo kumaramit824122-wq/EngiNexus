@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EngiNexus | Engineering Community</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon"></div>
+            Engi<span>Nexus</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Roadmaps</a></li>
+            <li><a href="#jobs-section">Jobs</a></li>
+            <li><button class="btn-nav" id="joinBtn">Join Now</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1> Connecting All Engineers in <span> One Place</span></h1>
+            <p>The ultimate hub for engineering students and professionals.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="showWelcome()">Explore Resources</button>
+                <button class="btn-secondary">View Jobs</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Professional Tech Illustration Placeholder -->
+            <img src="undraw_random-thoughts_spw5.svg" alt="EngiKnot Illustration">
+        </div>
+    </header>
+
+    <!-- Main Feature Cards -->
+    <section class="features">
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Smart Notes</h3>
+            <p>Comprehensive semester-wise notes and previous year question papers for all major universities.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🗺️</div>
+            <h3>AI Roadmaps</h3>
+            <p>Step-by-step career guides tailored for engineering students to achieve placement success.</p>
+        </div>
+        <div class="card" id="jobs-section">
+            <div class="icon">💼</div>
+            <h3>Live Jobs</h3>
+            <p>Real-time internship and job feeds fetched via professional APIs.</p>
+        </div>
+    </section>
+
+    <!-- Trending & News Section -->
+    <section class="extra-info">
+        <div class="trending">
+            <h2>🔥 Trending Skills</h2>
+            <div class="course-list">
+                <div class="course-item">Full Stack Development <span>New</span></div>
+                <div class="course-item">Data Structures & Algorithms</div>
+                <div class="course-item">Cloud Computing (AWS/Azure)</div>
+                <div class="course-item">Machine Learning Basics</div>
+            </div>
+        </div>
+
+        <div class="news-updates">
+            <h2>📢 Campus News</h2>
+            <marquee direction="up" scrollamount="2" class="news-box" onmouseover="this.stop();" onmouseout="this.start();">
+                <p>• New Internship Drive by ApexPlanet - Apply Now.</p>
+                <p>• RGPV Exam Form dates announced for June 2024.</p>
+                <p>• Result Update: 5th & 7th Sem results are live now.</p>
+                <p>• Technical Workshop on Web3 this Saturday in CS Dept.</p>
+                <p>• Upcoming National Level Coding Hackathons.</p>
+            </marquee>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>EngiNexus</strong> |  Built for Engineers Worldwide </p>
+        <p style="font-size: 12px; margin-top: 5px; opacity: 0.7;">Developed by Amit kumar | B.Tech CSE</p>
+    </footer>
+
+    <script>
+        function showWelcome() {
+            alert("Welcome to EngiKnot! We are untangling your academic resources...");
+        }
+        document.getElementById('joinBtn').onclick = function() {
+            alert("Registration Page will be developed in Task-2!");
+        }
+    </script>
+</body>
+</html>
