@@ -15,13 +15,21 @@
             <div class="logo-icon"></div>
             Engi<span>Nexus</span>
         </a>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Roadmaps</a></li>
-            <li><a href="#jobs-section">Jobs</a></li>
-            <li><button class="btn-nav" id="joinBtn">Join Now</button></li>
-        </ul>
+        <!-- Links -->
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#notes-section">Resources</a></li>
+        <li><a href="#roadmap-section">Roadmaps</a></li>
+        <li><a href="#jobs-section">Jobs</a></li>
+        <li><button class="btn-nav" onclick="location.href='register.html'">Join Now</button></li>
+    </ul>
+
+    <!-- 📱 Naya Mobile Menu Icon (Sirf mobile me dikhega) -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     </nav>
 
     <!-- Hero Section -->
@@ -97,5 +105,17 @@
             alert("Comming soon!");
         }
     </script>
+
+    <script>
+    function toggleMenu() {
+    var nav = document.getElementById("navLinks");
+    // Toggle 'active' class
+    nav.classList.toggle("active");
+    
+    // Testing ke liye (optional):
+    console.log("Menu toggled!"); 
+    }
+    </script>
+    
 </body>
 </html>
