@@ -194,12 +194,99 @@ footer {
     margin-top: 40px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero { flex-direction: column; text-align: center; padding-top: 30px; }
-    .hero-content { max-width: 100%; margin-bottom: 40px; }
-    .hero-content h1 { font-size: 35px; }
-    .features, .extra-info { flex-direction: column; }
-    .card, .trending, .news-updates { width: 100%; }
-    .nav-links { display: none; }
+/* --- Desktop Menu Icon (Hide by default) --- */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
 }
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: #2c3e50;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* --- 📱 Smart Mobile Responsive Layout --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%; /* Thoda kam padding mobile par */
+        position: relative;
+    }
+
+    .menu-icon {
+        display: flex; /* Icon dikhao */
+    }
+
+    .nav-links {
+        display: none; /* Default me band */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Navbar ke thik niche se shuru */
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        z-index: 1000;
+        border-top: 1px solid #eee;
+    }
+
+    .nav-links.active {
+        display: flex; /* Click par dikhao */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+    }
+
+    /* --- Page Structure Fix (Aisi ki taisi hone se bachane ke liye) --- */
+    
+    .hero {
+        flex-direction: column !important; /* Image niche, text upar */
+        text-align: center;
+        padding: 40px 5%;
+        margin-top: 20px;
+    }
+
+    .hero-content {
+        max-width: 100% !important;
+    }
+
+    .hero-content h1 {
+        font-size: 30px !important;
+    }
+
+    .hero-image img {
+        max-width: 280px !important;
+        margin-top: 30px;
+    }
+
+    .features, .extra-info {
+        flex-direction: column !important;
+        padding: 40px 5% !important;
+        gap: 30px;
+    }
+
+    .card, .trending, .news-updates {
+        width: 100% !important; /* Cards ab puri width lenge */
+        margin-bottom: 10px;
+    }
+    
+    /* Skill Tracker Section Fix */
+    .skill-tracker-container {
+        padding: 40px 5% !important;
+    }
+}
+
