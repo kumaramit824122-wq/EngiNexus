@@ -266,7 +266,7 @@ footer {
         padding: 10px;
     }
 
-    /* --- Page Structure Fix (Aisi ki taisi hone se bachane ke liye) --- */
+    /* --- Page Structure Fix  --- */
     
     .hero {
         flex-direction: column !important; /* Image niche, text upar */
@@ -304,4 +304,3 @@ footer {
         padding: 40px 5% !important;
     }
 }
-

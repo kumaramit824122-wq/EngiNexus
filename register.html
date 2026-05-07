@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | EngiNexus</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        /* Registration Specific Style */
+        .reg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .reg-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            border-top: 5px solid #3498db;
+        }
+        .reg-box h2 { margin-bottom: 20px; color: #2c3e50; text-align: center; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+        .input-group input:focus { border-color: #3498db; }
+        .error-msg { color: #e74c3c; font-size: 12px; margin-top: 5px; display: none; }
+        .btn-reg {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn-reg:hover { background: #2980b9; }
+        .back-home { text-align: center; margin-top: 15px; font-size: 13px; }
+        .back-home a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="reg-container">
+        <div class="reg-box">
+            <h2>Join <span>EngiNexus</span></h2>
+            <form id="regForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <p class="error-msg" id="nameError">Name is required</p>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="example@gmail.com">
+                    <p class="error-msg" id="emailError">Valid email is required</p>
+                </div>
+                <div class="input-group">
+                    <label>Branch</label>
+                    <select id="branch">
+                        <option value="">Select Branch</option>
+                        <option value="CSE">Computer Science (CSE)</option>
+                        <option value="IT">Information Technology (IT)</option>
+                        <option value="ME">Mechanical Engineering</option>
+                        <option value="EE">Electrical Engineering</option>
+                        <option value="EC">Electronics Engineering</option>
+                        <option value="CE">Civil Engineering</option>
+                    </select>
+                    <p class="error-msg" id="branchError">Please select your branch</p>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="pass" placeholder="Min 6 characters">
+                    <p class="error-msg" id="passError">Password must be at least 6 characters</p>
+                </div>
+                <button type="submit" class="btn-reg">Create Account</button>
+                <div class="back-home">
+                    <a href="index.html">← Back to Home</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic for Task-2 Validation -->
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Name Validation
+            const name = document.getElementById('name').value;
+            if(name.trim() === "") {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            } else { document.getElementById('nameError').style.display = 'none'; }
+
+            // Email Validation
+            const email = document.getElementById('email').value;
+            if(!email.includes('@')) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            } else { document.getElementById('emailError').style.display = 'none'; }
+
+            // Branch Validation
+            const branch = document.getElementById('branch').value;
+            if(branch === "") {
+                document.getElementById('branchError').style.display = 'block';
+                isValid = false;
+            } else { document.getElementById('branchError').style.display = 'none'; }
+
+            
+            // Password Validation
+            const pass = document.getElementById('pass').value;
+            if(pass.length < 6) {
+                document.getElementById('passError').style.display = 'block';
+                isValid = false;
+            } else { document.getElementById('passError').style.display = 'none'; }
+
+            if(isValid) {
+                alert("Account Created Successfully for " + name + " in EngiNexus!");
+                // Yahan aap user ko home page par bhej sakte hain
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -15,7 +15,7 @@
             <div class="logo-icon"></div>
             Engi<span>Nexus</span>
         </a>
-        <!-- Links -->
+         <!-- Links -->
     <ul class="nav-links" id="navLinks">
         <li><a href="#">Home</a></li>
         <li><a href="#notes-section">Resources</a></li>
@@ -67,6 +67,80 @@
         </div>
     </section>
 
+    <!-- Task-2 Step 4: Dynamic Skill Tracker -->
+<!-- Task-2 Step 4: Integrated Skill Tracker (Grid Theme) -->
+<section class="skill-tracker-container" style="padding: 30px 8%; position: relative;">
+    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(52, 152, 219, 0.1);">
+        
+        <h2 style="margin-bottom: 10px; color: #1a2a3a; font-weight: 700; border-left: 5px solid #3498db; padding-left: 15px;">🚀 My Engineering Goals</h2>
+        <p style="margin-bottom: 25px; font-size: 15px; color: #64748b; padding-left: 20px;">Track your skills and semester goals dynamically.</p>
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+            <input type="text" id="skillInput" placeholder="Add a goal (e.g. Learn java, COA, OS Notes...)" 
+                   style="flex: 1; padding: 15px; border: 1px solid #e2e8f0; border-radius: 10px; outline: none; font-size: 15px; background: #fff;">
+            
+            <button onclick="addSkill()" 
+                    style="padding: 15px 30px; background: #3498db; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3); transition: 0.3s;">
+                Add Goal
+            </button>
+        </div>
+
+        <ul id="skillList" style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;">
+            <!-- Skills yahan modern cards ki tarah add honge -->
+        </ul>
+    </div>
+</section>
+
+<script>
+    // LocalStorage Logic to keep data after refresh
+    window.onload = function() {
+        const savedSkills = JSON.parse(localStorage.getItem('engiNexusSkills')) || [];
+        savedSkills.forEach(skill => displaySkill(skill));
+    };
+
+    function addSkill() {
+        const input = document.getElementById('skillInput');
+        const skillValue = input.value.trim();
+        
+        if (skillValue === "") {
+            alert("Please enter a goal!");
+            return;
+        }
+
+        displaySkill(skillValue);
+
+        const savedSkills = JSON.parse(localStorage.getItem('engiNexusSkills')) || [];
+        savedSkills.push(skillValue);
+        localStorage.setItem('engiNexusSkills', JSON.stringify(savedSkills));
+
+        input.value = ""; 
+    }
+
+    function displaySkill(skill) {
+        const list = document.getElementById('skillList');
+        const li = document.createElement('li');
+        
+        // Iska style hamare "Feature Cards" jaisa hai
+        li.style.cssText = "background: #fff; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: 0.3s;";
+        
+        li.innerHTML = `
+            <span style="font-weight: 500; color: #2c3e50;">✅ ${skill}</span> 
+            <button onclick="removeSkill('${skill}', this)" style="color: #ff4757; border: none; background: none; cursor: pointer; font-size: 18px;">&times;</button>
+        `;
+        
+        list.appendChild(li);
+    }
+
+    function removeSkill(skillToRemove, element) {
+        element.parentElement.remove();
+        let savedSkills = JSON.parse(localStorage.getItem('engiNexusSkills')) || [];
+        savedSkills = savedSkills.filter(s => s !== skillToRemove);
+        localStorage.setItem('engiNexusSkills', JSON.stringify(savedSkills));
+    }
+</script>
+
+
+
     <!-- Trending & News Section -->
     <section class="extra-info">
         <div class="trending">
@@ -101,9 +175,9 @@
         function showWelcome() {
             alert("Welcome to EngiNexus! We are untangling your academic resources...");
         }
-        document.getElementById('joinBtn').onclick = function() {
-            alert("Comming soon!");
-        }
+       // document.getElementById('joinBtn').onclick = function() {
+       //     alert("Comming soon!");
+        //}
     </script>
 
     <script>
@@ -116,6 +190,7 @@
     console.log("Menu toggled!"); 
     }
     </script>
-    
+
+
 </body>
 </html>
