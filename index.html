@@ -39,7 +39,7 @@
             <p>The ultimate hub for engineering students and professionals.</p>
             <div class="hero-btns">
                 <button class="btn-primary" onclick="showWelcome()">Explore Resources</button>
-                <button class="btn-secondary">View Jobs</button>
+                <button class="btn-secondary"onclick="document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' })">View Jobs</button>
             </div>
         </div>
         <div class="hero-image">
@@ -64,6 +64,10 @@
             <div class="icon">💼</div>
             <h3>Live Jobs</h3>
             <p>Real-time internship and job feeds fetched via professional APIs.</p>
+            <!-- API Data Area -->
+            <div id="apiJobContainer" style="margin-top:15px; font-size:13px; text-align:left; color:#64748b;"></div>
+    
+            <button onclick="fetchLiveJobs()" class="task3-btn" id="apiBtn">Update Feed</button>
         </div>
     </section>
 
@@ -139,6 +143,54 @@
     }
 </script>
 
+<!-- ================= TASK-3 START ================= -->
+
+<!-- Task-3: Universal Multi-Branch Tech Quiz -->
+<section id="quiz-section" style="padding: 60px 8%; position: relative;">
+    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(52, 152, 219, 0.1); text-align: center;">
+        
+        <h2 style="margin-bottom: 10px; color: #1a2a3a; font-weight: 700; border-left: 5px solid #3498db; padding-left: 15px; text-align: left; display: inline-block;">🧠 Tech IQ Challenge</h2>
+        <p id="quiz-sub" style="margin-bottom: 25px; color: #64748b; font-size: 15px; text-align: left; padding-left: 20px;">Select your core engineering field and test your foundational knowledge.</p>
+        
+        <div id="quiz-container" style="max-width: 600px; margin: 0 auto; background: #f8fafc; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0;">
+            
+            <!-- 🌐 BRANCH SELECTOR LAYER -->
+            <div id="branch-selector-box">
+                <p style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: #475569;">Choose Your Engineering Branch:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 10px;">
+                    <button onclick="selectQuizBranch('CSE')" class="quiz-opt-btn" style="text-align:center; padding:12px; background:#fff; border:2px solid #e2e8f0; border-radius:8px; font-weight:600; cursor:pointer;">💻 CSE / IT</button>
+                    <button onclick="selectQuizBranch('AIML')" class="quiz-opt-btn" style="text-align:center; padding:12px; background:#fff; border:2px solid #e2e8f0; border-radius:8px; font-weight:600; cursor:pointer;">🤖 AI & ML</button>
+                    <button onclick="selectQuizBranch('ECE')" class="quiz-opt-btn" style="text-align:center; padding:12px; background:#fff; border:2px solid #e2e8f0; border-radius:8px; font-weight:600; cursor:pointer;">📟 Electronics</button>
+                    <button onclick="selectQuizBranch('ME')" class="quiz-opt-btn" style="text-align:center; padding:12px; background:#fff; border:2px solid #e2e8f0; border-radius:8px; font-weight:600; cursor:pointer;">⚙️ Mechanical</button>
+                    <button onclick="selectQuizBranch('EE')" class="quiz-opt-btn" style="text-align:center; padding:12px; background:#fff; border:2px solid #e2e8f0; border-radius:8px; font-weight:600; cursor:pointer;">⚡ Electrical</button>
+                    <button onclick="selectQuizBranch('CE')" class="quiz-opt-btn" style="text-align:center; padding:12px; background:#fff; border:2px solid #e2e8f0; border-radius:8px; font-weight:600; cursor:pointer;">🏗️ Civil</button>
+                </div>
+            </div>
+
+            <!-- QUESTION LAYER -->
+            <div id="question-box" style="display: none;">
+                <p id="question" style="font-size: 17px; font-weight: 600; margin-bottom: 20px; color: #2c3e50; text-align: left;"></p>
+                <div id="options-container" style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px;">
+                    <!-- Options dynamic aayenge -->
+                </div>
+                <button id="next-btn" onclick="nextQuestion()" style="display: none; padding: 12px 30px; background: #2c3e50; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; width: 100%;">Next Question ➔</button>
+            </div>
+
+        </div>
+
+        <!-- RESULT CARD LAYER -->
+        <div id="quiz-result-box" style="margin-top: 25px; display: none;">
+            <h3 id="result-status" style="color: #2c3e50; font-size: 22px; font-weight: 700;"></h3>
+            <p id="quiz-score" style="margin-top: 10px; font-weight: 800; font-size: 26px; color: #3498db;"></p>
+            <button onclick="restartQuiz()" style="margin-top: 15px; padding: 10px 20px; background: none; border: 2px solid #3498db; color: #3498db; border-radius: 8px; font-weight: 600; cursor: pointer;">Try Another Branch 🔄</button>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ================= TASK-3 END ================= -->
+
 
 
     <!-- Trending & News Section -->
@@ -180,17 +232,7 @@
         //}
     </script>
 
-    <script>
-    function toggleMenu() {
-    var nav = document.getElementById("navLinks");
-    // Toggle 'active' class
-    nav.classList.toggle("active");
-    
-    // Testing ke liye (optional):
-    console.log("Menu toggled!"); 
-    }
-    </script>
-
-
+        <!-- Task-3 Master Script Architecture Linking -->
+    <script src="script.js"></script>
 </body>
 </html>

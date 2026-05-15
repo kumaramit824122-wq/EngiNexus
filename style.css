@@ -227,6 +227,7 @@ footer {
 
 /* --- 📱 Smart Mobile Responsive Layout --- */
 @media (max-width: 768px) {
+    
     .navbar {
         padding: 15px 5%; /* Thoda kam padding mobile par */
         position: relative;
@@ -240,13 +241,13 @@ footer {
         display: none; /* Default me band */
         flex-direction: column;
         position: absolute;
-        top: 100%; /* Navbar ke thik niche se shuru */
+        top: 60px; /* Navbar ke thik niche se shuru */
         left: 0;
         width: 100%;
         background: #ffffff;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         padding: 20px 0;
-        z-index: 1000;
+        z-index: 9999 !important;   /* Taaki menu sabke upar dikhe */
         border-top: 1px solid #eee;
     }
 
@@ -269,23 +270,31 @@ footer {
     /* --- Page Structure Fix  --- */
     
     .hero {
-        flex-direction: column !important; /* Image niche, text upar */
+        flex-direction: column !important;
         text-align: center;
-        padding: 40px 5%;
-        margin-top: 20px;
+        padding: 20px 5% !important; /* Padding kam kar di taki extra space na bane */
+        min-height: auto !important;   /* Desktop ki 80vh wali unchai ko khatam kiya */
+        margin-top: 10px !important;
+        gap: 15px !important;          /* Elements ke beech ka gap control kiya */
     }
 
     .hero-content {
         max-width: 100% !important;
+        margin-bottom: 10px !important;
     }
 
     .hero-content h1 {
-        font-size: 30px !important;
+        font-size: 28px !important;
+        line-height: 1.2;
+    }
+    .hero-content p {
+        margin: 15px 0 !important;
+        font-size: 15px !important;
     }
 
     .hero-image img {
-        max-width: 280px !important;
-        margin-top: 30px;
+        max-width: 240px !important;
+        margin-top: 10px !important;
     }
 
     .features, .extra-info {
@@ -300,7 +309,101 @@ footer {
     }
     
     /* Skill Tracker Section Fix */
-    .skill-tracker-container {
+   .skill-tracker-container div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    #skillInput {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .skill-tracker-container button {
+        width: 100% !important; /* Button ab puri width lega */
+        margin-top: 5px;
+    }
+    
+    /* Multi-branch selector alignment grid tuning */
+    #branch-selector-box div {
+        grid-template-columns: repeat(2, 1fr) !important; /* Mobile par clean 2 columns dikhenge line se */
+        gap: 8px !important;
+    }
+    
+    .quiz-opt-btn {
+        padding: 10px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* task-3*/
+/* --- Task-3 Fresh Styling --- */
+
+.task3-btn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.task3-btn:hover { background: #2980b9; transform: scale(1.05); }
+
+.quiz-container {
+    padding: 30px 8%;
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-box {
+    width: 90% !important;
+    max-width: 1000px;
+    background: white;
+    padding: 30px 20px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid rgba(52, 152, 219, 0.1);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.quiz-box h2 {
+        font-size: 20px !important;
+    }
+
+.opt-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #f1f5f9;
+    background: #f8fafc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.opt-btn:hover {
+    border-color: #3498db;
+    background: #eef2f3;
+}
+
+/* 📱 Final Responsive Grid Fix */
+@media (max-width: 768px) {
+    .features, .extra-info, .quiz-container {
+        flex-direction: column !important;
         padding: 40px 5% !important;
+    }
+    .card, .quiz-box, .trending, .news-updates {
+        width: 100% !important;
+        margin-bottom: 20px;
     }
 }
