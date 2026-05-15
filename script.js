@@ -1,9 +1,12 @@
 // ==================== 📱 1. NAVBAR TOGGLE LOGIC ====================
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
-    if (navLinks) {
+    const menuIcon = document.querySelector('.menu-icon'); // Target hamburger container element
+    
+    if (navLinks && menuIcon) {
         navLinks.classList.toggle('active');
-        console.log("Navigation menu toggled.");
+        menuIcon.classList.toggle('active'); // Directly controls the 3-line cross morphing animation
+        console.log("Navigation template and animation toggled successfully.");
     }
 }
 
