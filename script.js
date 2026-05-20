@@ -1,4 +1,5 @@
 // ==================== 📱 1. NAVBAR TOGGLE LOGIC ====================
+// ==================== 📱 1. NAVBAR & HAMBURGER TOGGLE LOGIC ====================
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
     const menuIcon = document.querySelector('.menu-icon'); // Target hamburger container element
@@ -9,6 +10,7 @@ function toggleMenu() {
         console.log("Navigation template and animation toggled successfully.");
     }
 }
+
 
 // ==================== 💼 2. LIVE JOBS API PARADIGM ====================
 // ==================== 💼 2. PROFESSIONAL INTERMEDIATE GATEWAY ENGINE ====================

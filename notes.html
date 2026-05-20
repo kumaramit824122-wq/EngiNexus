@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Resources Portal | EngiNexus</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { 
+            background: #f8fafc; color: #1a2a3a; padding: 50px 8%;
+            background-image: linear-gradient(rgba(52, 152, 219, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 152, 219, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .back-home { margin-bottom: 25px; display: inline-flex; align-items: center; color: #64748b; text-decoration: none; font-weight: 500; font-size: 14px; transition: 0.2s; }
+        .back-home:hover { color: #3498db; transform: translateX(-3px); }
+        .header { margin-bottom: 35px; border-left: 5px solid #3498db; padding-left: 18px; }
+        .header h2 { font-size: 26px; font-weight: 700; color: #1e293b; }
+        
+        /* Filter Panel */
+        .filter-panel {
+            background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02); border: 1px solid rgba(52, 152, 219, 0.15);
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px;
+        }
+        .filter-group { display: flex; flex-direction: column; gap: 8px; }
+        .filter-group label { font-size: 13px; font-weight: 600; color: #475569; }
+        .filter-group select { padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; background: #fff; outline: none; font-weight: 500; cursor: pointer; }
+        
+        /* 🌐 SMART COMPACT SEMESTER COHORT ACTION PANEL (Syllabus & Scheme) */
+        .semester-action-bar {
+            background: #2c3e50; color: white; padding: 20px; border-radius: 12px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(44,62,80,0.15); display: none; /* JS will handle visibility */
+        }
+        .sem-info-text { font-size: 14px; font-weight: 500; }
+        .sem-btn-group { display: flex; gap: 10px; }
+        .btn-semester { padding: 10px 18px; background: #3498db; color: white; text-decoration: none; border-radius: 6px; font-size: 13px; font-weight: 600; transition: 0.2s; border: none; cursor: pointer; }
+        .btn-semester:hover { background: #2980b9; }
+
+        /* Subject Notes Grid */
+        .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .note-card {
+            background: #ffffff; padding: 25px; border-radius: 14px; border: 1px solid #e2e8f0;
+            display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .note-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(52,152,219,0.08); border-color: rgba(52,152,219,0.3); }
+        .note-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #3498db; }
+        .note-title { font-size: 17px; font-weight: 700; color: #1e293b; margin-bottom: 20px; line-height: 1.4; }
+        
+        /* 4 Specific Subject Buttons Grid Layout */
+        .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .res-link { 
+            text-align: center; padding: 10px; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;
+            border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; transition: 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .res-link:hover { background: #e8f4fd; color: #3498db; border-color: #3498db; }
+        .btn-core-notes { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+        .btn-core-notes:hover { background: #1d4ed8; color: white; }
+        .btn-bookmark { background: #fff5f5; color: #e11d48; border-color: #fecdd3; cursor: pointer; }
+        .btn-bookmark:hover { background: #e11d48; color: white; }
+        
+        @media (max-width: 768px) {
+            body { padding: 30px 5%; }
+            .filter-panel { grid-template-columns: 1fr; padding: 20px; }
+            .semester-action-bar { flex-direction: column; text-align: center; }
+            .sem-btn-group { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EngiNexus Global Dynamic Navigation Matrix Layer -->
+<nav style="background: #ffffff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 99999; font-family: 'Poppins', sans-serif;">
+    
+    <!-- 🔷 EXACT BRAND LOGO IDENTITY MATCH (Replicated from Screenshot) -->
+    <div style="display: flex; align-items: center; gap: 14px; cursor: pointer; transition: 0.2s;" 
+         onclick="location.href='index.html'"
+         onmouseover="this.style.transform='scale(1.02)'" 
+         onmouseout="this.style.transform='none'">
+        
+        <!-- 📱 The Tilted 3D Rounded Squircle Box -->
+        <div style="background: #2980b9; color: #ffffff; width: 44px; height: 42px; border-radius: 12px; transform: rotate(-10deg); font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; flex-shrink: 0; position: relative; box-shadow: -2px 4px 0px #1a2a3a; margin-right: 5px;">
+            <!-- Counter Rotation to keep text perfectly straight inside tilted box -->
+            <span style="transform: rotate(10deg); display: block; line-height: 1; letter-spacing: 0.5px;">
+                EN
+            </span>
+        </div>
+
+        
+        <span style="font-weight: 700; color: #2c3e50; font-size: 24px; letter-spacing: -0.5px;">
+            Engi<span style="color: #3498db;">Nexus</span>
+        </span>
+    </div>
+    
+    <!-- 🔗 PATHWAYS NAVIGATION LINKS (With Active Inline Dynamic CSS Transitions) -->
+    <ul style="display: flex; list-style: none; gap: 35px; align-items: center; margin: 0; padding: 0;">
+        <li>
+            <a href="index.html" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s ease-in-out;" 
+               onmouseover="this.style.color='#3498db'" 
+               onmouseout="this.style.color='#475569'">Home</a>
+        </li>
+        <li>
+            <a href="portfolio.html" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s ease-in-out;" 
+               onmouseover="this.style.color='#3498db'" 
+               onmouseout="this.style.color='#475569'">About</a>
+        </li>
+        <li>
+            <a href="notes.html" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s ease-in-out;" 
+               onmouseover="this.style.color='#3498db'" 
+               onmouseout="this.style.color='#475569'">Resources</a>
+        </li>
+        <li>
+            <a href="roadmaps.html" style="color: #475569; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s ease-in-out;" 
+               onmouseover="this.style.color='#3498db'" 
+               onmouseout="this.style.color='#475569'">Roadmaps</a>
+        </li>
+        <!-- Premium Action CTA Button Inside Links Matrix -->
+        <li>
+            <a href="register.html" style="background: #3498db; color: #ffffff; padding: 9px 20px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: 700; box-shadow: 0 4px 12px rgba(52,152,219,0.2); transition: all 0.2s ease-in-out; display: inline-block;" 
+               onmouseover="this.style.background='#2980b9'; this.style.transform='translateY(-1px)';" 
+               onmouseout="this.style.background='#3498db'; this.style.transform='none';">
+                Join Now
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+    
+    <div class="header">
+        <h2>📚 Engineering Resources Portal</h2>
+        <p style="color: #64748b; font-size: 14px; margin-top: 5px;">Access structured branch syllabi and specific subject assets.</p>
+    </div>
+
+    <div class="filter-panel">
+        <div class="filter-group">
+            <label>1. SELECT UNIVERSITY</label>
+            <select id="uniFilter" onchange="filterNotes()">
+                <option value="ALL">All Universities</option>
+                <option value="RGPV">RGPV Bhopal</option>
+                <option value="BEU">BEU Patna</option>
+                <option value="AKTU">AKTU Lucknow</option>
+                <option value="LNCT">LNCT Bhopal</option>
+                <option value="ORIENTAL">Oriental University</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>2. SELECT BRANCH</label>
+            <select id="branchFilter" onchange="filterNotes()">
+                <option value="ALL">All Branches</option>
+                <option value="CSE">Computer Science (CSE)</option>
+                <option value="AIML">AI & Machine Learning</option>
+                <option value="ECE">Electronics (ECE)</option>
+                <option value="EE">Electrical Engg (EE)</option>
+                <option value="ME">Mechanical Engg (ME)</option>
+                <option value="CE">Civil Engg (CE)</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>3. SELECT SEMESTER</label>
+            <select id="semFilter" onchange="filterNotes()">
+                <option value="ALL">All Semesters</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+                <option value="3">3rd Semester</option>
+                <option value="4">4th Semester</option>
+                <option value="5">5th Semester</option>
+                <option value="6">6th Semester</option>
+                <option value="7">7th Semester</option>
+                <option value="8">8th Semester</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 🌐 SMART SEMESTER DYNAMIC ACTION PANEL (Common Scheme & Syllabus Launcher) -->
+    <div class="semester-action-bar" id="semesterActionBar">
+        <div class="sem-info-text">
+            <span id="semPanelTitle" style="font-weight: 700; font-size: 16px; display: block;">🎯 Core Semester Map Loaded</span>
+            <span id="semPanelDesc" style="color: #cbd5e1; font-size: 13px;">View global structural timelines for this selection.</span>
+        </div>
+        <div class="sem-btn-group">
+            <a href="#" id="schemeBtn" target="_blank" class="btn-semester" style="background:#475569;">📋 View Scheme</a>
+            <a href="#" id="syllabusBtn" target="_blank" class="btn-semester">📄 Full Syllabus</a>
+        </div>
+    </div>
+
+    <div class="notes-grid" id="notesContainer">
+        <!-- Managed Dynamically -->
+    </div>
+
+    <script>
+        const notesDatabase = [
+            { id: 1, name: "Engineering Chemistry & Labs", uni: "RGPV", branch: "ALL", sem: "1", displayUni: "RGPV Bhopal", displayBranch: "Common Foundation" },
+            { id: 2, name: "Basic Mechanical Engineering (BME)", uni: "LNCT", branch: "ALL", sem: "1", displayUni: "LNCT Bhopal", displayBranch: "Common Foundation" },
+            { id: 3, name: "Basic Electrical & Electronics Engg (BEEE)", uni: "AKTU", branch: "ALL", sem: "1", displayUni: "AKTU Lucknow", displayBranch: "Common Foundation" },
+            { id: 4, name: "Engineering Physics Frameworks", uni: "BEU", branch: "ALL", sem: "2", displayUni: "BEU Patna", displayBranch: "Common Foundation" },
+            { id: 5, name: "Data Structures & Algorithms (DSA)", uni: "RGPV", branch: "CSE", sem: "3", displayUni: "RGPV Bhopal", displayBranch: "Computer Science (CSE)" },
+            { id: 6, name: "Database Management Systems (DBMS)", uni: "RGPV", branch: "CSE", sem: "4", displayUni: "RGPV Bhopal", displayBranch: "Computer Science (CSE)" },
+            { id: 7, name: "Compiler Design & Automata Theory", uni: "AKTU", branch: "CSE", sem: "5", displayUni: "AKTU Lucknow", displayBranch: "Computer Science (CSE)" },
+            { id: 8, name: "Computer Networks & Security Systems", uni: "BEU", branch: "CSE", sem: "6", displayUni: "BEU Patna", displayBranch: "Computer Science (CSE)" },
+            { id: 9, name: "Cloud Computing & DevOps Architectures", uni: "ORIENTAL", branch: "CSE", sem: "7", displayUni: "Oriental University", displayBranch: "Computer Science (CSE)" },
+            { id: 10, name: "Introduction to Neural Networks & AI", uni: "LNCT", branch: "AIML", sem: "4", displayUni: "LNCT Bhopal", displayBranch: "AI & Machine Learning" },
+            { id: 11, name: "Deep Learning & NLP Implementations", uni: "ORIENTAL", branch: "AIML", sem: "6", displayUni: "Oriental University", displayBranch: "AI & Machine Learning" },
+            { id: 12, name: "Digital Signal Processing Modules", uni: "LNCT", branch: "ECE", sem: "5", displayUni: "LNCT Bhopal", displayBranch: "Electronics (ECE)" },
+            { id: 13, name: "Electrical Machines & Transformers", uni: "ORIENTAL", branch: "EE", sem: "4", displayUni: "Oriental University", displayBranch: "Electrical Engg (EE)" },
+            { id: 14, name: "Thermodynamics & Fluid Mechanics", uni: "RGPV", branch: "ME", sem: "3", displayUni: "RGPV Bhopal", displayBranch: "Mechanical Engg (ME)" },
+            { id: 15, name: "Structural Analysis & RCC Design", uni: "BEU", branch: "CE", sem: "5", displayUni: "BEU Patna", displayBranch: "Civil Engg (CE)" }
+        ];
+
+        window.onload = function() {
+            filterNotes(); 
+        };
+
+        function filterNotes() {
+            const uniValue = document.getElementById('uniFilter').value;
+            const branchValue = document.getElementById('branchFilter').value;
+            const semValue = document.getElementById('semFilter').value;
+            const container = document.getElementById('notesContainer');
+            const semActionBar = document.getElementById('semesterActionBar');
+            
+            container.innerHTML = "";
+
+            // 🎯 LOGICAL EXECUTION: Manage Semester Level UI Display Panel
+            if (uniValue !== 'ALL' && branchValue !== 'ALL' && semValue !== 'ALL') {
+                semActionBar.style.display = "flex";
+                document.getElementById('semPanelTitle').innerText = `🎯 ${uniValue} | ${branchValue} | Semester ${semValue} Map`;
+                
+                const queryContext = encodeURIComponent(`${uniValue} ${branchValue} sem ${semValue}`);
+                document.getElementById('schemeBtn').href = `https://google.com{queryContext}+engineering+scheme+pdf`;
+                document.getElementById('syllabusBtn').href = `https://google.com{queryContext}+official+syllabus+pdf`;
+            } else {
+                semActionBar.style.display = "none";
+            }
+
+            const filteredData = notesDatabase.filter(note => {
+                const branchMatch = (branchValue === 'ALL' || note.branch === branchValue || (note.branch === 'ALL' && (semValue === '1' || semValue === '2' || semValue === 'ALL')));
+                const uniMatch = (uniValue === 'ALL' || note.uni === uniValue);
+                const semMatch = (semValue === 'ALL' || note.sem === semValue);
+                return uniMatch && branchMatch && semMatch;
+            });
+
+            if(filteredData.length === 0) {
+                container.innerHTML = "<div style='grid-column:1/-1; text-align:center; padding:40px; color:#64748b; font-weight:500; font-size:15px;'>No matching subject cards found for this selection.</div>";
+                return;
+            }
+
+            filteredData.forEach(note => {
+                const card = document.createElement('div');
+                card.className = "note-card";
+                
+                const queryStr = encodeURIComponent(note.name + " " + note.displayUni);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="note-title">${note.name}</div>
+                    </div>
+                    
+                    <!-- Subject Specific Action Buttons Layer (Only 4 Clean Nodes Now) -->
+                    <div class="resource-grid">
+                        <a href="https://google.com{queryStr}+handwritten+notes+pdf" target="_blank" class="res-link btn-core-notes">📚 Core Notes</a>
+                        <a href="https://google.com{queryStr}+previous+year+questions+pyq+pdf" target="_blank" class="res-link">📄 PYQs</a>
+                        <a href="https://google.com{queryStr}+important+questions+exam" target="_blank" class="res-link">🔥 Imp Qs</a>
+                        <a href="https://google.com{queryStr}+viva+questions+interview" target="_blank" class="res-link">🗣️ Viva Qs</a>
+                        <button class="res-link btn-bookmark" style="grid-column: span 2; margin-top: 5px;" onclick="saveToLibrary(${note.id}, '${note.name}')">🔖 Bookmark to Library</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function saveToLibrary(id, name) {
+            let savedLibrary = JSON.parse(localStorage.getItem('engiNexusLibrary')) || [];
+            if(savedLibrary.some(item => item.id === id)) {
+                alert(`"${name}" is already bookmarked!`);
+                return;
+            }
+            savedLibrary.push({ id: id, name: name });
+            localStorage.setItem('engiNexusLibrary', JSON.stringify(savedLibrary));
+            alert(`"${name}" bookmarked successfully to localStorage!`);
+        }
+    </script>
+</body>
+</html>

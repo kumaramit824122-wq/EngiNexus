@@ -17,9 +17,10 @@
         </a>
          <!-- Links -->
     <ul class="nav-links" id="navLinks">
-        <li><a href="#">Home</a></li>
-        <li><a href="#notes-section">Resources</a></li>
-        <li><a href="#roadmap-section">Roadmaps</a></li>
+        <li><a href="index.html">Home</a></li>
+         <li><a href="portfolio.html">About</a></li>
+        <li><a href="notes.html">Resources</a></li>
+        <li><a href="roadmaps.html">Roadmaps</a></li>
         <li><a href="#jobs-section">Jobs</a></li>
         <li><button class="btn-nav" onclick="location.href='register.html'">Join Now</button></li>
     </ul>
@@ -38,7 +39,7 @@
             <h1> Connecting All Engineers in <span> One Place</span></h1>
             <p>The ultimate hub for engineering students and professionals.</p>
             <div class="hero-btns">
-                <button class="btn-primary" onclick="showWelcome()">Explore Resources</button>
+                <button class="btn-primary" onclick="location.href='notes.html'">Explore Resources</button>
                 <button class="btn-secondary"onclick="document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' })">View Jobs</button>
             </div>
         </div>
@@ -50,12 +51,12 @@
 
     <!-- Main Feature Cards -->
     <section class="features">
-        <div class="card">
+        <div class="card" onclick="location.href='notes.html'" style="cursor: pointer;">
             <div class="icon">📚</div>
             <h3>Smart Notes</h3>
             <p>Comprehensive semester-wise notes and previous year question papers for all major universities.</p>
         </div>
-        <div class="card">
+        <div class="card" onclick="location.href='roadmaps.html'" style="cursor: pointer;">
             <div class="icon">🗺️</div>
             <h3>AI Roadmaps</h3>
             <p>Step-by-step career guides tailored for engineering students to achieve placement success.</p>
@@ -218,10 +219,57 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 <strong>EngiNexus</strong> |  Built for Engineers Worldwide </p>
-        <p style="font-size: 12px; margin-top: 5px; opacity: 0.7;">Developed by Amit kumar | B.Tech CSE</p>
-    </footer>
+   <!-- Task-4: Final Premium Polished Footer Module -->
+<!-- Task-4: Final Premium Minimal Dark Footer (Clean & Clear Contrast) -->
+<!-- Task-4: Final Premium Polished Dark Footer (100% Logo & Text Symmetry) -->
+<footer style="background: #0f172a; padding: 50px 8% 25px 8%; font-family: 'Poppins', sans-serif; margin-top: 60px; color: #cbd5e1; width: 100%;">
+    
+    <!-- Top Grid Row Layout -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; padding-bottom: 25px; border-bottom: 1px solid #1e293b;">
+        
+        <!-- Left Side: EXACT NAVBAR LOGO IDENTITY MATCH (Replicated from Screenshot) -->
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <!-- 📱 The Tilted 3D Rounded Squircle Box (Matching Navbar Spec) -->
+            <div style="background: #158cdb; color: #ffffff; width: 44px; height: 42px; border-radius: 12px; transform: rotate(-10deg); font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; flex-shrink: 0; position: relative; box-shadow: -2px 4px 0px #1a2a3a; margin-right: 5px;">
+                <!-- Counter Rotation to keep text straight -->
+                <span style="transform: rotate(10deg); display: block; line-height: 1; letter-spacing: 0.5px;">
+                    EN
+                </span>
+            </div>
+            
+            <div style="display: flex; flex-direction: column;">
+                <span style="font-weight: 700; color: #ffffff; font-size: 22px; letter-spacing: -0.5px; line-height: 1.2;">
+                    Engi<span style="color: #2ba4f5;">Nexus</span>
+                </span>
+                <span style="color: #586270; font-weight: 600; font-size: 10px; letter-spacing: 0.5px; margin-top: 8px;">GLOBAL ENGINEERING NODE</span>
+            </div>
+        </div>
+
+        <!-- Center Side: High-Contrast Navigation Nodes -->
+        <div style="display: flex; gap: 35px; flex-wrap: wrap; align-items: center;">
+            <a href="index.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; transition: 0.2s;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">Home</a>
+            <a href="portfolio.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; transition: 0.2s;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">About</a>
+            <a href="notes.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; transition: 0.2s;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">Resources</a>
+            <a href="roadmaps.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; transition: 0.2s;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">Roadmaps</a>
+        </div>
+
+        <!-- Right Side: Polished Button Framework -->
+        <div>
+            <a href="portfolio.html" style="display: inline-block; text-decoration: none; background: #3482db; color: #ffffff; padding: 12px 26px; border-radius: 30px; font-size: 13px; font-weight: 700; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.25); transition: all 0.2s ease-in-out;" 
+               onmouseover="this.style.background='#2980b9'; this.style.transform='translateY(-1px)';" 
+               onmouseout="this.style.background='#3498db'; this.style.transform='none';">
+                Developer Portfolio ➔
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Bottom Stripline Metadata -->
+    <div style="max-width: 1200px; margin: 15px auto 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #eeeff1; font-weight: 500;">
+        <span>&copy; 2026 EngiNexus. Built for Engineers Worldwide.</span>
+        <span style="letter-spacing: 0.3px; color: #ccd2d9;">Developed by <strong style="color: #ffffff; font-weight: 600;">Amit Kumar</strong> | B.Tech CSE</span>
+    </div>
+</footer>
 
     <script>
         function showWelcome() {

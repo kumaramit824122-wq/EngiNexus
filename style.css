@@ -343,7 +343,7 @@ footer {
         width: 100% !important; /* Button ab puri width lega */
         margin-top: 5px;
     }
-    
+
     /* Multi-branch selector alignment grid tuning */
     #branch-selector-box div {
         grid-template-columns: repeat(2, 1fr) !important; /* Mobile par clean 2 columns dikhenge line se */
