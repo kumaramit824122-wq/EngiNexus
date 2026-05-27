@@ -55,7 +55,6 @@
     </style>
 </head>
 <body>
-
     <div class="reg-container">
         <div class="reg-box">
             <h2>Join <span>EngiNexus</span></h2>
@@ -83,8 +82,7 @@
                     </select>
                     <p class="error-msg" id="branchError">Please select your branch</p>
                 </div>
-
-
+                
                 <div class="input-group">
                     <label>Password</label>
                     <input type="password" id="pass" placeholder="Min 6 characters">
@@ -125,7 +123,6 @@
                 isValid = false;
             } else { document.getElementById('branchError').style.display = 'none'; }
 
-            
             // Password Validation
             const pass = document.getElementById('pass').value;
             if(pass.length < 6) {
