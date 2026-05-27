@@ -1,4 +1,3 @@
-// ==================== 📱 1. NAVBAR TOGGLE LOGIC ====================
 // ==================== 📱 1. NAVBAR & HAMBURGER TOGGLE LOGIC ====================
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
@@ -10,10 +9,7 @@ function toggleMenu() {
         console.log("Navigation template and animation toggled successfully.");
     }
 }
-
-
 // ==================== 💼 2. LIVE JOBS API PARADIGM ====================
-// ==================== 💼 2. PROFESSIONAL INTERMEDIATE GATEWAY ENGINE ====================
 async function fetchLiveJobs() {
     const container = document.getElementById('apiJobContainer');
     const btn = document.getElementById('apiBtn');
@@ -39,10 +35,8 @@ async function fetchLiveJobs() {
             location: j.location || "Remote / India",
             url: j.url // External link containing the full description, qualifications and apply workflow
         }));
-
         renderGatewayCards(liveGatewayFeed, container);
         btn.innerText = "Refresh Vacancies";
-
     } catch (e) {
         console.log("CORS/Proxy limit hit - Loading live verified institutional gateway links.");
         
@@ -67,12 +61,10 @@ async function fetchLiveJobs() {
                 url: "https://amazon.jobs" 
             }
         ];
-        
         renderGatewayCards(directInstitutionalLinks, container);
         btn.innerText = "Refresh Vacancies";
     }
 }
-
 function renderGatewayCards(data, container) {
     container.innerHTML = "";
     
@@ -103,11 +95,6 @@ function renderGatewayCards(data, container) {
         container.appendChild(jobCard);
     });
 }
-
-
-
-
-
 
 // ==================== 🧠 3. MULTI-BRANCH TECH QUIZ DATA ====================
 const multiBranchQuiz = {
