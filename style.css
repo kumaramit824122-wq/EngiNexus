@@ -55,7 +55,6 @@ body {
 }
 
 .logo span { color: #3498db; }
-
 .nav-links { display: flex; list-style: none; align-items: center; }
 .nav-links li a { text-decoration: none; color: #333; margin: 0 15px; font-size: 15px; transition: 0.3s; }
 .nav-links li a:hover { color: #3498db; }
@@ -69,7 +68,6 @@ body {
     cursor: pointer;
     font-weight: 600;
 }
-
 
 /* Hero Section */
 .hero {
